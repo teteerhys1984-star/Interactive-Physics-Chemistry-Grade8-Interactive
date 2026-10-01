@@ -24,7 +24,7 @@ jobs:
     needs: verify
     runs-on: ubuntu-latest
     environment:
-      name: github-pages
+      name: github-pages-arena
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
