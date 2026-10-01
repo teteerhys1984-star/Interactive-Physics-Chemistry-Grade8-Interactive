@@ -7,4 +7,5 @@ import './rebuild.css';
 import './simulations.css';
 import './typography.css';
 import './teacher.css';
+import './questions.css';
 createRoot(document.getElementById('root')!).render(<StrictMode><App /></StrictMode>);

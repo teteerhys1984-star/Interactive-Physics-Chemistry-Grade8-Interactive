@@ -50,6 +50,14 @@ Every lesson must include:
 
 Do not invent apparatus, readings, outcomes, or diagrams that are not readable in the supplied source. Preserve the book's experiment and results. If a platform simulation expands the source, label it **Platform Addition**.
 
+## Question interaction and assessment standard
+
+Every textbook question is classified by type before rendering. Multiple-choice questions use selectable options with a visible selected state; true/false uses two controls; ordering uses an ordering control; completion uses an input; data/table questions use an appropriate structured interaction. Student selection is stored without immediate correct/incorrect feedback unless the lesson explicitly requires it. The final assessment is a new comprehensive test, not a verbatim copy of the textbook, and mixes suitable types such as choice, true/false, ordering, data interpretation, application, and short scientific response. Ten questions of one repeated type do not satisfy the standard. Future Teacher Areas contain the answer key and detailed solutions.
+
+## Scientific table standard
+
+Every scientific table explicitly defines text, background, border, active, hover, and selected colors at the cell/row variant level. It must not rely on inherited parent color in a way that can make scientific symbols, labels, or values invisible. This applies equally to student lessons, Teacher Area, Chemistry, Physics, and future scientific tables. Scientific cells remain LTR-isolated where applicable.
+
 ## Accessibility and presentation
 
 Lesson content must use semantic headings and landmarks, keyboard-accessible controls, visible focus, adequate contrast, reduced-motion support, and text/shape cues in addition to color. The visual treatment should remain premium, distinctive, calm, and laptop-first rather than a generic grid of identical cards.
