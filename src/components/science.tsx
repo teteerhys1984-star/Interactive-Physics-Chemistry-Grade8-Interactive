@@ -31,5 +31,14 @@ export function IonNotation({ species, charge }: { species: string; charge: stri
   const tokens = useMemo(() => species.match(/[A-Z][a-z]?|\d+|[^A-Za-z\d]/g) ?? [], [species]);
   return <span className="ion-notation" dir="ltr" aria-label={`${species}${charge}`}>{tokens.map((token, index) => /\d+/.test(token) ? <sub key={index}>{token}</sub> : <span key={index}>{token}</span>)}<sup className="ion-charge">{charge}</sup></span>;
 }
+const valenceByAtomicNumber: Record<number, number> = { 1: 1, 2: 2, 6: 4, 7: 5, 8: 6, 9: 7, 11: 1, 12: 2, 13: 3, 17: 7, 19: 1, 20: 2, 35: 7, 47: 1 };
+export function LewisNotation({ symbol, atomicNumber, valenceElectrons = valenceByAtomicNumber[atomicNumber] ?? 0 }: { symbol: string; atomicNumber: number; valenceElectrons?: number }) {
+  const positions = ['top', 'right', 'bottom', 'left'];
+  const electrons = Array.from({ length: valenceElectrons }, (_, index) => ({ index, position: positions[index < 4 ? index : index - 4] }));
+  return <span className="lewis-notation" dir="ltr" aria-label={`تمثيل لويس للعنصر ${symbol}، ${valenceElectrons} إلكترونات تكافؤ`}>
+    {positions.map(position => <span className={`lewis-side ${position}`} key={position}>{electrons.filter(electron => electron.position === position).map(electron => <span className="lewis-electron" key={electron.index} aria-hidden="true" />)}</span>)}
+    <span className="lewis-symbol">{symbol}</span>
+  </span>;
+}
 export function Unit({ children }: { children: string }) { return <span className="unit" dir="ltr">{children}</span>; }
 export function ScientificValue({ value, unit }: { value: string | number; unit?: string }) { return <span className="scientific-value" dir="ltr"><span>{value}</span>{unit && <Unit>{unit}</Unit>}</span>; }

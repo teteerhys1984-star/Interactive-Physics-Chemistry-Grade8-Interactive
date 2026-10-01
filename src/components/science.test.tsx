@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import { ChemicalFormula, IonNotation, MathInline, NuclearNotation } from './science';
+import { ChemicalFormula, IonNotation, LewisNotation, MathInline, NuclearNotation } from './science';
 
 describe('scientific rendering contracts', () => {
   it('keeps nuclear fields separate and isolated LTR', () => {
@@ -33,6 +33,15 @@ describe('scientific rendering contracts', () => {
     const ion = screen.getByLabelText('SO42−');
     expect(ion.querySelector('sub')).toHaveTextContent('4');
     expect(ion.querySelector('.ion-charge')).toHaveTextContent('2−');
+  });
+  it('renders Lewis valence electrons as independent directional DOM nodes', () => {
+    const { container } = render(<LewisNotation symbol="O" atomicNumber={8} />);
+    expect(container.querySelector('.lewis-notation')).toHaveAttribute('dir', 'ltr');
+    expect(container.querySelectorAll('.lewis-electron')).toHaveLength(6);
+    expect(container.querySelector('.top')?.querySelectorAll('.lewis-electron')).toHaveLength(2);
+    expect(container.querySelector('.right')?.querySelectorAll('.lewis-electron')).toHaveLength(2);
+    expect(container.querySelector('.bottom')?.querySelectorAll('.lewis-electron')).toHaveLength(1);
+    expect(container.querySelector('.left')?.querySelectorAll('.lewis-electron')).toHaveLength(1);
   });
   it('renders mathematics through KaTeX in isolated LTR markup', () => {
     const { container } = render(<MathInline tex="v = \\frac{d}{t}" />);
