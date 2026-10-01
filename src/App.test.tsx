@@ -35,7 +35,8 @@ describe('course and lesson navigation', () => {
     await user.click(screen.getByRole('button', { name: /الكيمياء/ }));
     await user.click(screen.getByText('الكيمياء البنيوية'));
     await user.click(screen.getByText('الكيمياء البنيوية'));
-    expect(screen.queryByText('ملاحظات تدريسية')).not.toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /مساحة المعلم/ })).not.toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: 'الفيزياء والكيمياء' }));
     await user.click(screen.getByRole('button', { name: /مساحة المعلم/ }));
     await user.click(screen.getByRole('button', { name: /فتح منطقة المعلم/ }));
     await user.type(screen.getByLabelText('كلمة المرور'), 'somer173');
