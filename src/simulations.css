@@ -9,3 +9,27 @@
 .isotope-table > div:hover { background: #eaf4ef; color: #173c3a; }
 .isotope-table > div.active-row, .isotope-table > div[aria-selected="true"] { background: #f3e7d9; color: #673e2d; }
 .isotope-table > div.active-row span, .isotope-table > div[aria-selected="true"] span { color: #673e2d; }
+/* Scientific tables: every structural element owns an explicit, contrasting palette. */
+.scientific-table,
+.scientific-table thead,
+.scientific-table tbody,
+.scientific-table tr { color: #1c2a30 !important; background: #fffdf9 !important; }
+.scientific-table th,
+.scientific-table thead th { color: #164f4b !important; background: #dcebe6 !important; border: 1px solid #9ebdb3 !important; }
+.scientific-table td,
+.scientific-table tbody td { color: #1c2a30 !important; background: #fffdf9 !important; border: 1px solid #c5d1ca !important; }
+.scientific-table tr:hover,
+.scientific-table tbody tr:hover { color: #173c3a !important; background: #eaf4ef !important; }
+.scientific-table tbody tr:hover td { color: #173c3a !important; background: #eaf4ef !important; }
+.scientific-table tr:active,
+.scientific-table tbody tr:active,
+.scientific-table tr.selected,
+.scientific-table tbody tr.selected,
+.scientific-table tr.active-row,
+.scientific-table tbody tr.active-row { color: #3d291d !important; background: #f3e7d9 !important; }
+.scientific-table tr:active td,
+.scientific-table tbody tr:active td,
+.scientific-table tr.selected td,
+.scientific-table tbody tr.selected td,
+.scientific-table tr.active-row td,
+.scientific-table tbody tr.active-row td { color: #3d291d !important; background: #f3e7d9 !important; }

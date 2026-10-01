@@ -31,3 +31,13 @@ it('keeps the isotope scientific table readable and marks the active row', async
   await userEvent.selectOptions(screen.getByLabelText('النظير'), 'deuterium');
   expect(table.querySelector('.active-row')).toHaveTextContent('ديوتيريوم');
 });
+
+it('keeps scientific table cells explicitly colored instead of inheriting', () => {
+  render(<IsotopeExperiment />);
+  const table = screen.getByTestId('isotope-table');
+  for (const cell of Array.from(table.querySelectorAll('th, td'))) {
+    const styledCell = cell as HTMLElement;
+    expect(styledCell.style.color).not.toBe('');
+    expect(styledCell.style.backgroundColor).not.toBe('');
+  }
+});

@@ -11,10 +11,11 @@ describe('course and lesson navigation', () => {
     await user.click(screen.getByRole('button', { name: /فتح منطقة المعلم/ }));
     await user.type(screen.getByLabelText('كلمة المرور'), 'somer173');
     await user.click(screen.getByRole('button', { name: 'دخول' }));
-    await user.click(screen.getByRole('button', { name: 'الدروس' }));
-    expect(screen.getByText('الدروس المتاحة')).toBeInTheDocument();
-    expect(screen.getAllByText('الدرس الأول — الذرة والعنصر').length).toBeGreaterThan(0);
-    expect(screen.getByRole('button', { name: 'الأنشطة والتجارب' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'الحلول التفصيلية للكتاب' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'الاختبار الشامل' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'الحلول التفصيلية للاختبار' })).toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: 'الاختبار الشامل' }));
+    expect(screen.getByText('الاختبار الشامل للدرس')).toBeInTheDocument();
   });
   it('takes the learner from the unified course home to Chemistry Lesson 1', async () => {
     const user = userEvent.setup();
@@ -39,6 +40,7 @@ describe('course and lesson navigation', () => {
     await user.click(screen.getByRole('button', { name: /فتح منطقة المعلم/ }));
     await user.type(screen.getByLabelText('كلمة المرور'), 'somer173');
     await user.click(screen.getByRole('button', { name: 'دخول' }));
-    expect(screen.getAllByText('ملاحظات تدريسية').length).toBeGreaterThan(0);
+    expect(screen.getByRole('button', { name: 'الحلول التفصيلية للكتاب' })).toBeInTheDocument();
+    expect(screen.queryByText('ملاحظات تدريسية')).not.toBeInTheDocument();
   });
 });
