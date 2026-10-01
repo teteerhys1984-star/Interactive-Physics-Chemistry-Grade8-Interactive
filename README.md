@@ -15,3 +15,5 @@ npm run build
 The public **Scientific Rendering Lab** is the current deliverable. It intentionally contains no Lesson 1 or textbook content. See `docs/` for architecture, rendering rules, and content standards.
 
 GitHub Pages is deployed by `.github/workflows/deploy.yml` after lint, tests, and build. The Vite base path is `/Interactive-Physics-Chemistry-Grade8-Interactive/`.
+
+Foundation verified in CI workflow.
