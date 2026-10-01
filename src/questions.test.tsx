@@ -37,7 +37,9 @@ it('keeps scientific table cells explicitly colored instead of inheriting', () =
   const table = screen.getByTestId('isotope-table');
   for (const cell of Array.from(table.querySelectorAll('th, td'))) {
     const styledCell = cell as HTMLElement;
-    expect(styledCell.style.color).not.toBe('');
-    expect(styledCell.style.backgroundColor).not.toBe('');
+    const computed = getComputedStyle(styledCell);
+    expect(computed.color).not.toBe(computed.backgroundColor);
+    expect(computed.color).not.toBe('');
+    expect(computed.backgroundColor).not.toBe('');
   }
 });

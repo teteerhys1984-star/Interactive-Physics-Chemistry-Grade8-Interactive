@@ -8,9 +8,13 @@ describe('course and lesson navigation', () => {
     const user = userEvent.setup();
     render(<App />);
     await user.click(screen.getByRole('button', { name: /مساحة المعلم/ }));
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+    expect(screen.getByRole('main')).toHaveClass('teacher-page');
     await user.click(screen.getByRole('button', { name: /فتح منطقة المعلم/ }));
     await user.type(screen.getByLabelText('كلمة المرور'), 'somer173');
     await user.click(screen.getByRole('button', { name: 'دخول' }));
+    const teacherPage = document.querySelector('.teacher-page-surface') as HTMLElement;
+    expect(getComputedStyle(teacherPage).color).not.toBe(getComputedStyle(teacherPage).backgroundColor);
     expect(screen.getByRole('button', { name: 'الحلول التفصيلية للكتاب' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'الاختبار الشامل' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'الحلول التفصيلية للاختبار' })).toBeInTheDocument();
