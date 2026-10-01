@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import { ChemicalFormula, IonNotation, LewisNotation, MathInline, NuclearNotation } from './science';
+import { ChemicalFormula, ChargeValue, IonNotation, LewisNotation, MathInline, NuclearNotation } from './science';
 
 describe('scientific rendering contracts', () => {
   it('keeps nuclear fields separate and isolated LTR', () => {
@@ -42,6 +42,13 @@ describe('scientific rendering contracts', () => {
     expect(container.querySelector('.right')?.querySelectorAll('.lewis-electron')).toHaveLength(2);
     expect(container.querySelector('.bottom')?.querySelectorAll('.lewis-electron')).toHaveLength(1);
     expect(container.querySelector('.left')?.querySelectorAll('.lewis-electron')).toHaveLength(1);
+  });
+  it('keeps standalone numeric charge sign before magnitude in isolated LTR markup', () => {
+    const { container } = render(<><ChargeValue sign="−" magnitude={2} /><ChargeValue sign="+" magnitude={2} /></>);
+    const values = container.querySelectorAll('.charge-value');
+    expect(values[0]).toHaveTextContent('−2');
+    expect(values[1]).toHaveTextContent('+2');
+    expect(values[0]).toHaveAttribute('dir', 'ltr');
   });
   it('renders mathematics through KaTeX in isolated LTR markup', () => {
     const { container } = render(<MathInline tex="v = \\frac{d}{t}" />);

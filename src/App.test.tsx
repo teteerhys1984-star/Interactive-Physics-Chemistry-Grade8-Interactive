@@ -27,6 +27,6 @@ describe('course and lesson navigation', () => {
     await user.click(screen.getByRole('button', { name: /فتح منطقة المعلم/ }));
     await user.type(screen.getByLabelText('كلمة المرور'), 'somer173');
     await user.click(screen.getByRole('button', { name: 'دخول' }));
-    expect(screen.getByText('ملاحظات تدريسية')).toBeInTheDocument();
+    expect(screen.getAllByText('ملاحظات تدريسية').length).toBeGreaterThan(0);
   });
 });

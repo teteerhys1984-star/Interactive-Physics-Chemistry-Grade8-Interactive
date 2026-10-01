@@ -39,9 +39,10 @@ Keep these real independent components:
 
 Arabic prose is RTL. Equations, formulas, symbols, Latin numbers, and units are isolated LTR. For example, `5 kg`, `25 °C`, and `9.8 m/s²` retain number-then-unit order. Never use whitespace, Unicode positioning, string concatenation, or browser bidi behavior as a scientific layout hack.
 
-## Interactive experiments
+## Interactive experiments and animation-first standard
 
-When a supplied lesson contains a suitable experiment or activity, implement it as a genuine **Interactive Educational Experiment**, not as text inside a card or decorative animation. Where supported by the source, include apparatus, steps, variables, measurements, observations, results, conclusion, and the connection between measurement and result. Use SVG, Canvas, sliders, controls, and simulated apparatus when appropriate. Do not invent unreadable source details or attribute platform additions to the textbook.
+When a supplied lesson contains a suitable experiment or activity, implement it as a genuine **Interactive Educational Experiment**, not as text inside a card or decorative animation. If the phenomenon can be represented meaningfully with motion, animation is the first choice: `student action → motion → visual change → observation → scientific interpretation`. Use interactive SVG/Canvas or DOM when appropriate, and use a static diagram only when motion is scientifically irrelevant or would not add understanding. A static image, changing number, changing label, or decorative button must never be called an Interactive Experiment. Different phenomena require different visual languages: beam deflection for Thomson, particle scattering for Rutherford, shells/electrons for Bohr, valence transfer for octet, and nucleon changes for isotopes.
+ Where supported by the source, include apparatus, steps, variables, measurements, observations, results, conclusion, and the connection between measurement and result. Use SVG, Canvas, sliders, controls, and simulated apparatus when appropriate. Do not invent unreadable source details or attribute platform additions to the textbook.
 
 ## Teacher Area per lesson
 

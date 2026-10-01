@@ -1,0 +1,7 @@
+/* Global scientific typography rules. */
+.nuclear-notation,.nuclear-notation *,.charge-value,.chemical-formula,.ion-notation,.unit,.scientific-value{font-style:normal;font-variant-numeric:tabular-nums;font-synthesis:none;}
+.nuclear-notation .mass-number,.nuclear-notation .atomic-number{font-style:normal;font-family:'Space Grotesk',sans-serif;font-weight:500;line-height:1;}
+.charge-value{display:inline-block;direction:ltr;unicode-bidi:isolate;font-family:'Space Grotesk',sans-serif;}
+.lewis-notation .lewis-electron{margin:1px}.lewis-side.top,.lewis-side.bottom{gap:3px}.lewis-side.left,.lewis-side.right{gap:3px}
+.reset-sim{border:1px solid #b7cbc3;background:#fffdf9;color:#46595a;border-radius:4px;padding:8px 12px;font-size:11px}.beam-particle{fill:#2d9f91;opacity:.95}.beam-particle.moving{filter:drop-shadow(0 0 5px #2d9f91)}.electron-beam.moving{stroke-dasharray:10 8;animation:beam-flow .7s linear infinite}.flying-alpha{fill:#c8754d;filter:drop-shadow(0 0 3px #c8754d)}@keyframes beam-flow{to{stroke-dashoffset:-36}}
+.home-teacher{margin-top:35px;background:var(--ink);color:white;border:0;padding:13px 20px;font-size:13px;cursor:pointer;display:block}.home-teacher:hover{background:var(--chem)}

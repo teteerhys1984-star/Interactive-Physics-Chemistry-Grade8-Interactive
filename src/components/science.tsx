@@ -40,5 +40,6 @@ export function LewisNotation({ symbol, atomicNumber, valenceElectrons = valence
     <span className="lewis-symbol">{symbol}</span>
   </span>;
 }
+export function ChargeValue({ sign, magnitude }: { sign: '+' | '−' | '-'; magnitude?: number }) { return <span className="charge-value" dir="ltr" aria-label={`${sign}${magnitude ?? ''}`}>{sign}{magnitude ?? ''}</span>; }
 export function Unit({ children }: { children: string }) { return <span className="unit" dir="ltr">{children}</span>; }
 export function ScientificValue({ value, unit }: { value: string | number; unit?: string }) { return <span className="scientific-value" dir="ltr"><span>{value}</span>{unit && <Unit>{unit}</Unit>}</span>; }

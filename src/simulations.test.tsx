@@ -11,6 +11,7 @@ describe('Lesson 1 scientific simulations', () => {
     await user.selectOptions(screen.getByLabelText('اتجاه المجال'), 'إلى الأعلى');
     expect(beam()).not.toBe(before);
     expect(screen.getByText(/تنحرف الحزمة إلى الأعلى/)).toBeInTheDocument();
+    expect(document.querySelector('.beam-particle animateMotion')).toBeInTheDocument();
   });
   it('Rutherford changes observed counts after launching particles', async () => {
     const user = userEvent.setup(); render(<RutherfordExperiment />);
@@ -18,6 +19,7 @@ describe('Lesson 1 scientific simulations', () => {
     await user.click(screen.getByRole('button', { name: 'إطلاق جسيمات ألفا' }));
     expect(screen.getByText('عدد التشغيلات: 1')).toBeInTheDocument();
     expect(screen.getByText('20')).toBeInTheDocument();
+    expect(document.querySelectorAll('.flying-alpha animateMotion').length).toBe(12);
   });
   it('Bohr changes the rendered atom and distribution when element changes', async () => {
     const user = userEvent.setup(); render(<BohrExperiment />);
